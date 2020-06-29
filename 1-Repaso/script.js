@@ -55,16 +55,17 @@ mascotas.push('Paloma');
 console.log(mascotas);
 
 function nombreFuncion() {
-    //function this
+    return 'Mensaje';
 }
 
+console.log(nombreFuncion());
 // Definicion de una funcion
 const nombreArrowFunction = () => {
     // todo el archivo this
-    console.log(variablelet);
+    console.log(variableLet);
 }
 
-let variablelet = 'valor';
+let variableLet = 'valor';
 
 // ejecucion de la funcion
 nombreArrowFunction();
@@ -77,7 +78,6 @@ for each
 while do
 if else
 switch
-
 */
 
 const a = '3';
@@ -105,7 +105,63 @@ switch (a) {
         break;
 }
 
+const devolverValores = () => {
+    let contador = 0;
+    while(true) {
+        // contador = contador + 1;
+        // contador += 1;
+        contador++;
+        if( contador === 4){
+            break;
+        }
+    }
+    contador = contador >4 ? contador + 3 : contador--;
+    return `La cantidad de veces que se contó es ${contador}`;
+}
+
+devolverValores();
+
 console.log(1/0)
 console.log(0/1)
 console.log(0/0)
 
+
+/* Arrow function */
+
+() => {
+}
+parametro => {}
+
+parametro => {
+    return "Algo";
+}
+parametro => "Algo";
+
+(parametro1, parametro2) => {}
+
+const nombreArrow = (parametro1, parametro2) => {}
+
+const nombreArrow4 = () => {
+}
+const nombreArrow5 = parametro => {}
+
+const nombreArrow3 = parametro => {
+    return 'Algo';
+}
+
+const nombreArrow2 = parametro => 'Algo';
+
+const nombreArrow1 = (parametro1, parametro2)=> {}
+
+const nombreArrow = (parametro1, parametro2)=> {
+    return 'Algo';
+};
+
+const variableNueva = nombreArrow3(1);
+
+/* Agrupar por funcionalidades */
+const nombreAmigo = "Hugo";
+
+const devolverTiposDeDatos = () => {
+    nombreAmigo
+}
