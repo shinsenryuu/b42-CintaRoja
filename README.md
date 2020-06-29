@@ -1,1 +1,0 @@
-# b42-CintaRoja
