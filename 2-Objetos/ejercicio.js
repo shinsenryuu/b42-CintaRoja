@@ -53,14 +53,16 @@ myPenguin.graznar();
 console.log(myPenguin);
 
 /* Ejercicio 5 */
-myPenguin.saludar = `Hola, soy un pingüino y mi nombre es ${myPenguin.character}!`;
+myPenguin.saludar = function() {
+    return `Hola, soy un pingüino y mi nombre es ${this.character}!`
+};
 
-console.log(myPenguin.saludar);
+console.log(myPenguin.saludar());
 
 /* Ejercicio 6 */
 myPenguin.character = "Señor Pingu";
 
-console.log(myPenguin.saludar);
+console.log(myPenguin.saludar());
 
 /* Ejercicio 7 */
 myPenguin.volar = function() {

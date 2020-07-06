@@ -15,60 +15,60 @@
 
 /* Ejercicio 1 */
 
-/*
 class Persona {
-    constructor(fechaNacimiento){
-        this.fechaNacimiento = fechaNacimiento;
-    }
-    getAge(){
-        this.fechaNacimiento;
-*/
+    constructor(nombre, fechaNacimiento, sexo, peso, altura) {
+        this.nombre = nombre; // nombre completo
+        this.fechaNacimiento = fechaNacimiento; // DDMMAAAA
+        this.sexo = sexo; // hombre, mujer
+        this.peso = peso; //kg
+        this.altura = altura; //m
 
-class Persona {
-    constructor(nombre, edad, sexo, peso, altura) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.sexo = sexo;
-        this.peso = peso;
-        this.altura = altura;
+
     };
 
-    // separar nombre y apellidos y luego con charAt() sacar los caracteres que se necesitan
-
-    calcularEdad() {
-        //corregir edad a tipo fecha
-        //const fechaActual = Date.now();
-        // calcular edad desde fecha de nacimiento
-
+    getAge() {
+        const dia = new Date();
+        let cumpleaños = new Date(this.fechaNacimiento)
+        let edad = dia.getFullYear() - cumpleaños.getFullYear();
+        let mes = dia.getMonth() - cumpleaños.getMonth();
+        if (mes < 0 || (mes === 0 && dia.getDate() < cumpleaños.getDate())) {
+            edad--;
+        }
+        return edad;
     }
 
     calcularIMC() {
-        console.log(this.peso/this.altura);
+        return this.peso / (this.altura * this.altura);
     };
 
     esMayorDeEdad() {
-        if(this.edad >= 18) {
-            console.log(`${this.nombre} es mayor de edad.`)
+        if (this.getAge() >= 18) {
+            return `${this.nombre} es mayor de edad.`
         } else {
-            console.log(`${this.nombre} no es mayor de edad.`)
+            return `${this.nombre} no es mayor de edad.`
         }
     };
 
 
     generarRFC() {
-        this.nombre.split(" ");
-
-        //convertir string nombre y hacer split a letras
-        //agarrar letras para RFC
-        //usar seis digitos de fecha de nacimiento
+        let nombreSeparado = this.nombre.split(" ");
+        let primerApellido = nombreSeparado[1].substring(0, 2)
+        let primeraParte = primerApellido.toUpperCase() + nombreSeparado[2].charAt() + nombreSeparado[0].charAt()
+        let fecha = this.fechaNacimiento.split("/");
+        let segundaParte = fecha[2].substring(2, 4) + fecha[0] + fecha[1]
+        let todoJunto = primeraParte + segundaParte
+        return todoJunto
 
     }
 };
 
-const Persona1 = new Persona("Sara Sanchez Solis", 25, "RFC", "femenino", 70, 1.7)
+const Persona1 = new Persona("Sara Sanchez Solis", "03/07/1993", "mujer", 70, 1.7)
 
-console.log(Persona1)
-console.log(Persona1.RFC())
+console.log(Persona1);
+console.log(Persona1.calcularIMC());
+console.log(Persona1.getAge());
+console.log(Persona1.esMayorDeEdad())
+console.log(Persona1.generarRFC())
 
 
 /* Ejercicio 2 */
@@ -81,17 +81,24 @@ class Cuenta {
     };
 
     ingresar(a) {
-        console.log(this.peso/this.altura);
-    };
-
-    retirar(b) {
-        if(this.cantidad + a >= 18) {
-            console.log("Lo sentimos, no puedes realizar esta operacion al sobrepasar el limite de tu cuenta")
+        if ((this.cantidad + a) > 900) {
+            return `Lo sentimos ${this.titular}, no puede realizar esta operacion al sobrepasar el limite de tu cuenta.`;
         } else {
-            console.log(`${this.nombre} no es mayor de edad.`)
+            return `Operacion exitosa, su nuevo total es de ${this.cantidad + a}.`;
         }
     };
 
-    RFC
-};
+    retirar(b) {
+        if ((this.cantidad - b) < 10) {
+            return `Lo sentimos ${this.titular}, tu cuenta debe de tener un minimo de $10.00.`;
+        } else {
+            return `Operacion exitosa, su nuevo total es de ${this.cantidad - b}.00.`;
+        }
+    };
+}
 
+const cuentaNueva = new Cuenta("Sara Sanchez Solis", 500, )
+console.log(cuentaNueva.ingresar(600));
+console.log(cuentaNueva.ingresar(300));
+console.log(cuentaNueva.retirar(600));
+console.log(cuentaNueva.retirar(250))

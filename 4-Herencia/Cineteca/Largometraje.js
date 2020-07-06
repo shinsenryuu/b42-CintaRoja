@@ -7,7 +7,7 @@ class Largometraje {
         this.duration = duration;
     };
     reproducir() {
-        console.log(`En un momento se reproducirá ${this.title}`);
+        return `En un momento se reproducirá ${this.title}`;
     };
 };
 

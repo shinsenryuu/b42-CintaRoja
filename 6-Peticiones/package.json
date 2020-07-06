@@ -1,0 +1,18 @@
+{
+  "name": "peticiones",
+  "version": "1.0.0",
+  "description": "Peticiones b42",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js",
+    "poke": "node pokemon.js",
+    "nasa": "node ejercicio.js",
+    "swapi": "node starWars.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "shinsenryuu",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.88.2"
+  }
+}
